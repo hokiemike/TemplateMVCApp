@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Typeahead Example";
+}
+
+<div class="row-fluid">
+    <div class="span12">
+    <h2>@ViewBag.Title</h2>                                                       
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">                                
+        <form>
+            <label>Enter A Tag</label>
+            <input type="text" data-bind="typeahead: jsFrameworks" />
+        </form>                       
+    </div><!--/span-->  
+    
+    <div class="span8">
+        <div class="span4">   
+            <form data-bind="submit: addFramework">
+                <label>Add a new tag</label>
+                <input type="text" data-bind="value: frameworkToAdd, valueUpdate: 'afterkeydown'" />
+                <div class="form-actions">
+                    <button class="btn" type="submit" data-bind="enable: frameworkToAdd().length > 0">Add</button>
+                </div>
+            </form>  
+        </div>
+        
+        <!-- spacer -->
+        <div class="span2"></div>
+
+        <div class="well span6">
+            <ul class="nav nav-list" data-bind="foreach: jsFrameworks">
+                <li> 
+                    <span data-bind="text: $data"></span>
+                    <span class="icon-remove" data-bind="click: $root.removeFramework"></span>
+                </li>
+            </ul>
+        </div>   
+                  
+    </div>    
+  </div> <!-- row -->

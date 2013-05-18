@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="../assets/js/html5shiv.js"></script>
+        <![endif]-->
+    
+
+    
+        @Styles.Render("~/Content/extcss")
+        @Styles.Render("~/Content/css")
+        
+        
+
+        @Scripts.Render("~/bundles/modernizr")
+        
+        <style type="text/css">
+            
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px; 
+            }
+
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+
+            @@media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+              float: none;
+              padding-left: 5px;
+              padding-right: 5px;
+            }
+      }
+
+        </style>
+
+    </head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">RSUI WebApp Template</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Side Nav -->
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                  <li><a href="/">Main</a></li>                  
+                  <li class="nav-header">Knockout Plugin Samples</li>
+                  <li><a href="/PluginSamples/Typeahead">Typeahead Example</a></li>
+                  <li><a href="#">Link</a></li>
+                  <li><a href="#">Link</a></li>            
+              </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+          
+          
+          
+          <!-- begin body -->
+          <div class="span9">
+              @RenderBody()
+          </div>
+          <!-- end body -->
+          
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; RSUI 2013</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+   
+
+    @Scripts.Render(
+        "~/bundles/jquery", 
+        "~/bundles/jsextlibs",
+        "~/bundles/jsapplibs",
+        "~/Scripts/main.js")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

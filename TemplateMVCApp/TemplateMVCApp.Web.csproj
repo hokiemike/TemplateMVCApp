@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build;ConfigTokenMerge" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.2-unstable-9\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="RSUI.Framework.Shared">
+      <HintPath>..\libs\RSUI.Framework.Shared.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -196,6 +199,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Content\toastr.less" />
+    <Content Include="config\Web.config.template" />
+    <Content Include="config\dev\Web.config.token" />
+    <Content Include="Web.config" />
     <None Include="Scripts\lib\jquery-1.9.1.intellisense.js" />
     <None Include="Scripts\lib\amplify-vsdoc.js" />
     <Content Include="Scripts\lib\amplify.js" />
@@ -220,13 +226,6 @@
     <Content Include="Scripts\lib\underscore.js" />
     <Content Include="Scripts\lib\underscore.min.js" />
     <Content Include="Scripts\main.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\site.css" />
     <Content Include="Images\accent.png" />
@@ -250,6 +249,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\PluginSamples\Typeahead.cshtml" />
     <Content Include="Views\View1.cshtml" />
+    <Content Include="Views\Home\View1.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +263,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TemplateMVCApp.Data\TemplateMVCApp.Data.csproj">
+      <Project>{D7E3C50F-2C02-4134-BDEA-F060FB97555E}</Project>
+      <Name>TemplateMVCApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplateMVCApp.Model\TemplateMVCApp.Model.csproj">
+      <Project>{e5ca2a59-8749-4dab-b920-2b4110aeeab4}</Project>
+      <Name>TemplateMVCApp.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -267,6 +283,11 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <UsingTask TaskName="RSUI.TokenMerge.CustomTaskClient.TokenMergeCustomTask" AssemblyName="RSUI.TokenMerge.CustomTask, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ba1e822b23a8779f" />
+  <Target Name="ConfigTokenMerge">
+    <Message Text="$(AppConfig)" />
+    <TokenMergeCustomTask InTemplateFile=".\config\Web.config.template" InTokenFile=".\config\dev\Web.config.token" OutDirectoryFile="$(ProjectDir)\Web.config" ErrorIfTokenNotFound="true" Overwrite="true" />
   </Target>
   <ProjectExtensions>
     <VisualStudio>

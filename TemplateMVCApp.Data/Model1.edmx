@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="EMPLOYEE" EntityType="Model1.Store.EMPLOYEE" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_RECORD_NUMBER" />
+          </Key>
+          <Property Name="EMP_RECORD_NUMBER" Type="int" Nullable="false" />
+          <Property Name="EMP_USER_PROFILE" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="EMP_LAST_NAME" Type="varchar" MaxLength="60" />
+          <Property Name="EMP_ACTIVE_CODE" Type="char" MaxLength="1" />
+          <Property Name="EMP_EXTENSION" Type="int" />
+          <Property Name="EMP_FIRST_NAME" Type="varchar" MaxLength="60" />
+          <Property Name="EMP_MIDDLE_NAME" Type="varchar" MaxLength="60" />
+          <Property Name="EMP_PREFIX" Type="varchar" MaxLength="5" />
+          <Property Name="EMP_BRANCH_NUMBER" Type="int" />
+          <Property Name="EMP_DEPARTMENT_NUMBER" Type="int" />
+          <Property Name="EMP_EMAIL_ADDRESS" Type="varchar" MaxLength="60" />
+          <Property Name="EMP_FAXNUMBER" Type="varchar" MaxLength="10" />
+          <Property Name="PaymentAuthority" Type="money" />
+          <Property Name="EmployeeTypeKey" Type="int" />
+          <Property Name="IsExempt" Type="bit" Nullable="false" />
+          <Property Name="IsOnPayroll" Type="bit" Nullable="false" />
+          <Property Name="DefaultUnderwriter" Type="int" />
+          <Property Name="IsExecutive" Type="bit" Nullable="false" />
+          <Property Name="Signature" Type="varchar" MaxLength="250" />
+          <Property Name="AllowCompressed" Type="bit" />
+          <Property Name="CompressedStatusDate" Type="datetime" />
+          <Property Name="WorkOtherDepartmentTasks" Type="bit" Nullable="false" />
+          <Property Name="IndemnityReserveAuthority" Type="numeric" Scale="2" />
+          <Property Name="ExpenseReserveAuthority" Type="numeric" Scale="2" />
+          <Property Name="Initials" Type="varchar" MaxLength="5" />
+          <Property Name="Address1" Type="varchar" MaxLength="255" />
+          <Property Name="Address2" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="STATE_ABBREVIATION" Type="char" MaxLength="2" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EMPLOYEEs" EntityType="Model1.EMPLOYEE" />
+        </EntityContainer>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_RECORD_NUMBER" />
+          </Key>
+          <Property Type="Int32" Name="EMP_RECORD_NUMBER" Nullable="false" />
+          <Property Type="String" Name="EMP_USER_PROFILE" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMP_LAST_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMP_ACTIVE_CODE" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="EMP_EXTENSION" />
+          <Property Type="String" Name="EMP_FIRST_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMP_MIDDLE_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMP_PREFIX" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EMP_BRANCH_NUMBER" />
+          <Property Type="Int32" Name="EMP_DEPARTMENT_NUMBER" />
+          <Property Type="String" Name="EMP_EMAIL_ADDRESS" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EMP_FAXNUMBER" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="PaymentAuthority" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="EmployeeTypeKey" />
+          <Property Type="Boolean" Name="IsExempt" Nullable="false" />
+          <Property Type="Boolean" Name="IsOnPayroll" Nullable="false" />
+          <Property Type="Int32" Name="DefaultUnderwriter" />
+          <Property Type="Boolean" Name="IsExecutive" Nullable="false" />
+          <Property Type="String" Name="Signature" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="AllowCompressed" />
+          <Property Type="DateTime" Name="CompressedStatusDate" Precision="3" />
+          <Property Type="Boolean" Name="WorkOtherDepartmentTasks" Nullable="false" />
+          <Property Type="Decimal" Name="IndemnityReserveAuthority" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="ExpenseReserveAuthority" Precision="18" Scale="2" />
+          <Property Type="String" Name="Initials" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address2" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="STATE_ABBREVIATION" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="ZipCode" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1StoreContainer">
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="Model1.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="STATE_ABBREVIATION" ColumnName="STATE_ABBREVIATION" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="ExpenseReserveAuthority" ColumnName="ExpenseReserveAuthority" />
+                <ScalarProperty Name="IndemnityReserveAuthority" ColumnName="IndemnityReserveAuthority" />
+                <ScalarProperty Name="WorkOtherDepartmentTasks" ColumnName="WorkOtherDepartmentTasks" />
+                <ScalarProperty Name="CompressedStatusDate" ColumnName="CompressedStatusDate" />
+                <ScalarProperty Name="AllowCompressed" ColumnName="AllowCompressed" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="IsExecutive" ColumnName="IsExecutive" />
+                <ScalarProperty Name="DefaultUnderwriter" ColumnName="DefaultUnderwriter" />
+                <ScalarProperty Name="IsOnPayroll" ColumnName="IsOnPayroll" />
+                <ScalarProperty Name="IsExempt" ColumnName="IsExempt" />
+                <ScalarProperty Name="EmployeeTypeKey" ColumnName="EmployeeTypeKey" />
+                <ScalarProperty Name="PaymentAuthority" ColumnName="PaymentAuthority" />
+                <ScalarProperty Name="EMP_FAXNUMBER" ColumnName="EMP_FAXNUMBER" />
+                <ScalarProperty Name="EMP_EMAIL_ADDRESS" ColumnName="EMP_EMAIL_ADDRESS" />
+                <ScalarProperty Name="EMP_DEPARTMENT_NUMBER" ColumnName="EMP_DEPARTMENT_NUMBER" />
+                <ScalarProperty Name="EMP_BRANCH_NUMBER" ColumnName="EMP_BRANCH_NUMBER" />
+                <ScalarProperty Name="EMP_PREFIX" ColumnName="EMP_PREFIX" />
+                <ScalarProperty Name="EMP_MIDDLE_NAME" ColumnName="EMP_MIDDLE_NAME" />
+                <ScalarProperty Name="EMP_FIRST_NAME" ColumnName="EMP_FIRST_NAME" />
+                <ScalarProperty Name="EMP_EXTENSION" ColumnName="EMP_EXTENSION" />
+                <ScalarProperty Name="EMP_ACTIVE_CODE" ColumnName="EMP_ACTIVE_CODE" />
+                <ScalarProperty Name="EMP_LAST_NAME" ColumnName="EMP_LAST_NAME" />
+                <ScalarProperty Name="EMP_USER_PROFILE" ColumnName="EMP_USER_PROFILE" />
+                <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="EMP_RECORD_NUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

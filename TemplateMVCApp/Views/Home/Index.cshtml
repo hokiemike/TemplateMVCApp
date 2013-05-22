@@ -1,6 +1,4 @@
 ﻿
-@model IEnumerable<TemplateMVCApp.Model.Employee>
-
 
 @{
     ViewBag.Title = "Main";
@@ -30,78 +28,7 @@
     </div><!--/span-->
     
     
-    <div class="span12">
-        <h2>Employees</h2>
-        <table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_RECORD_NUMBER)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_USER_PROFILE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_LAST_NAME)
-        </th>
-        
-        
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_FIRST_NAME)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_MIDDLE_NAME)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_PREFIX)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_BRANCH_NUMBER)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_DEPARTMENT_NUMBER)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EMP_EMAIL_ADDRESS)
-        </th>
-        
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_RECORD_NUMBER)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_USER_PROFILE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_LAST_NAME)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_FIRST_NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_MIDDLE_NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_PREFIX)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_BRANCH_NUMBER)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_DEPARTMENT_NUMBER)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EMP_EMAIL_ADDRESS)
-        </td>
-        
-        
-    </tr>
-}
-
-</table>
+    
     </div><!--/span-->
 </div><!--/row-->
 

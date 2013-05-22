@@ -152,6 +152,7 @@ C:\github\TemplateMVCApp\TemplateMVCApp\bin\Microsoft.Web.Infrastructure.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\Newtonsoft.Json.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\Ninject.dll
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\RSUI.Framework.Shared.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Net.Http.Formatting.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Spatial.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Web.Helpers.dll
@@ -166,8 +167,15 @@ C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Web.Razor.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Web.WebPages.Deployment.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Web.WebPages.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Web.WebPages.Razor.dll
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.Contracts.dll
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.dll
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Model.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\WebGrease.dll
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.Contracts.pdb
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.pdb
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Model.pdb
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\Ninject.xml
+C:\github\TemplateMVCApp\TemplateMVCApp\bin\RSUI.Framework.Shared.pdb
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\EntityFramework.xml
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\Newtonsoft.Json.xml
 C:\github\TemplateMVCApp\TemplateMVCApp\bin\System.Net.Http.Formatting.xml
@@ -214,9 +222,3 @@ C:\github\TemplateMVCApp\TemplateMVCApp\bin\zh-Hant\System.Spatial.resources.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\obj\Debug\TemplateMVCApp.Web.csprojResolveAssemblyReference.cache
 C:\github\TemplateMVCApp\TemplateMVCApp\obj\Debug\TemplateMVCApp.dll
 C:\github\TemplateMVCApp\TemplateMVCApp\obj\Debug\TemplateMVCApp.pdb
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\RSUI.Framework.Shared.dll
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\RSUI.Framework.Shared.pdb
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.dll
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Model.dll
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Data.pdb
-C:\github\TemplateMVCApp\TemplateMVCApp\bin\TemplateMVCApp.Model.pdb

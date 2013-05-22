@@ -4,8 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="866d85f1c4884c0fae9e6c50ef325028" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.EMPLOYEE" Width="2.375" PointX="0.5" PointY="0.5" IsExpanded="true" />
+      <Diagram DiagramId="bbf79475c93f43aea9d2156d314edba2" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="DEV3Model.BRANCH" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.DEPARTMENT" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.EMPLOYEE" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.Employee_OrgUnit_XRef" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.Employee_Type" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.EmployeeCalendarYear" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.EmployeePersonalContact" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.EmployeeStatu" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DEV3Model.EmployeeStatusHistory" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="DEV3Model.FK__EmployeeC__Emp_R__510DE289" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.FK__EmployeeS__Emp_R__69D99053" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.FK_EMPLOYEE_Employee_OrgUnit_XRef" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.FK_EmployeePersonalContact_EMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.FK__EmployeeS__Emplo__40392799" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.EMPLOYEE_XREF" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.EmployeePTOCoordinatorXref" ManuallyRouted="false" />
+        <AssociationConnector Association="DEV3Model.EmployeeTimeCardApproverXRef" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

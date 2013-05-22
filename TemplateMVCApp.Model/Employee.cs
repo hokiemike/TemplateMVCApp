@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,18 @@ namespace TemplateMVCApp.Model
     {
 
         [Key]
+        [DisplayName("Emp Record Number")]
         public int EMP_RECORD_NUMBER { get; set; }
+
+        [DisplayName("Login Id")]
         public string EMP_USER_PROFILE { get; set; }
+
+        [DisplayName("Last Name")]
         public string EMP_LAST_NAME { get; set; }
         public string EMP_ACTIVE_CODE { get; set; }
         public Nullable<int> EMP_EXTENSION { get; set; }
+
+        [DisplayName("First Name")]
         public string EMP_FIRST_NAME { get; set; }
         public string EMP_MIDDLE_NAME { get; set; }
         public string EMP_PREFIX { get; set; }

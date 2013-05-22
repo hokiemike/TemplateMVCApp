@@ -4,10 +4,87 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="Model1StoreContainer">
-          <EntitySet Name="EMPLOYEE" EntityType="Model1.Store.EMPLOYEE" store:Type="Tables" Schema="dbo" />
+      <Schema Namespace="DEV3Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="DEV3ModelStoreContainer">
+          <EntitySet Name="BRANCHES" EntityType="DEV3Model.Store.BRANCHES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DEPARTMENTS" EntityType="DEV3Model.Store.DEPARTMENTS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EMPLOYEE" EntityType="DEV3Model.Store.EMPLOYEE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee_OrgUnit_XRef" EntityType="DEV3Model.Store.Employee_OrgUnit_XRef" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee_Type" EntityType="DEV3Model.Store.Employee_Type" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EMPLOYEE_XREF" EntityType="DEV3Model.Store.EMPLOYEE_XREF" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeCalendarYear" EntityType="DEV3Model.Store.EmployeeCalendarYear" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeePersonalContact" EntityType="DEV3Model.Store.EmployeePersonalContact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeePTOCoordinatorXref" EntityType="DEV3Model.Store.EmployeePTOCoordinatorXref" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeStatus" EntityType="DEV3Model.Store.EmployeeStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeStatusHistory" EntityType="DEV3Model.Store.EmployeeStatusHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeTimeCardApproverXRef" EntityType="DEV3Model.Store.EmployeeTimeCardApproverXRef" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__EMPLOYEE___PRIMA__0AABB02F" Association="DEV3Model.Store.FK__EMPLOYEE___PRIMA__0AABB02F">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EMPLOYEE_XREF" EntitySet="EMPLOYEE_XREF" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEE___SECON__09B78BF6" Association="DEV3Model.Store.FK__EMPLOYEE___SECON__09B78BF6">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EMPLOYEE_XREF" EntitySet="EMPLOYEE_XREF" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__Emp_R__510DE289" Association="DEV3Model.Store.FK__EmployeeC__Emp_R__510DE289">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeeCalendarYear" EntitySet="EmployeeCalendarYear" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeP__Coord__0DA3862B" Association="DEV3Model.Store.FK__EmployeeP__Coord__0DA3862B">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeePTOCoordinatorXref" EntitySet="EmployeePTOCoordinatorXref" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeP__Emp_R__0E97AA64" Association="DEV3Model.Store.FK__EmployeeP__Emp_R__0E97AA64">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeePTOCoordinatorXref" EntitySet="EmployeePTOCoordinatorXref" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeS__Emp_R__69D99053" Association="DEV3Model.Store.FK__EmployeeS__Emp_R__69D99053">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeeStatusHistory" EntitySet="EmployeeStatusHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeS__Emplo__40392799" Association="DEV3Model.Store.FK__EmployeeS__Emplo__40392799">
+            <End Role="EmployeeStatus" EntitySet="EmployeeStatus" />
+            <End Role="EmployeeStatusHistory" EntitySet="EmployeeStatusHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeT__Appro__1174170F" Association="DEV3Model.Store.FK__EmployeeT__Appro__1174170F">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeeTimeCardApproverXRef" EntitySet="EmployeeTimeCardApproverXRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeT__Emp_R__12683B48" Association="DEV3Model.Store.FK__EmployeeT__Emp_R__12683B48">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeeTimeCardApproverXRef" EntitySet="EmployeeTimeCardApproverXRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_Employee_OrgUnit_XRef" Association="DEV3Model.Store.FK_EMPLOYEE_Employee_OrgUnit_XRef">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="Employee_OrgUnit_XRef" EntitySet="Employee_OrgUnit_XRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalContact_EMPLOYEE" Association="DEV3Model.Store.FK_EmployeePersonalContact_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="EmployeePersonalContact" EntitySet="EmployeePersonalContact" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BRANCHES">
+          <Key>
+            <PropertyRef Name="BRANCH_NUMBER" />
+          </Key>
+          <Property Name="BRANCH_NUMBER" Type="int" Nullable="false" />
+          <Property Name="BRANCH_DESCRIPTION" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="DEPARTMENTS">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_NUMBER" />
+          </Key>
+          <Property Name="DEPARTMENT_NUMBER" Type="int" Nullable="false" />
+          <Property Name="DEPARTMENT_DESCRIPTION" Type="varchar" MaxLength="60" />
+          <Property Name="UNDERWRITING_FLAG" Type="char" MaxLength="1" />
+          <Property Name="CLAIMS_FLAG" Type="char" MaxLength="1" />
+          <Property Name="PROGRAM_FLAG" Type="char" MaxLength="1" />
+          <Property Name="DEDUCTIBLE_BILLING_FLAG" Type="int" />
+          <Property Name="PROFITCENTERKEY" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="AccountingGroupTypeKey" Type="int" />
+          <Property Name="CreateNewSubmissions" Type="bit" />
+        </EntityType>
         <EntityType Name="EMPLOYEE">
           <Key>
             <PropertyRef Name="EMP_RECORD_NUMBER" />
@@ -43,113 +120,627 @@
           <Property Name="STATE_ABBREVIATION" Type="char" MaxLength="2" />
           <Property Name="ZipCode" Type="varchar" MaxLength="10" />
         </EntityType>
-      </Schema></edmx:StorageModels>
+        <EntityType Name="Employee_OrgUnit_XRef">
+          <Key>
+            <PropertyRef Name="EmployeeOrgUnitXrefID" />
+          </Key>
+          <Property Name="EmployeeOrgUnitXrefID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_RECORD_NUMBER" Type="int" Nullable="false" />
+          <Property Name="OrgUnitID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee_Type">
+          <Key>
+            <PropertyRef Name="EmployeeTypeKey" />
+          </Key>
+          <Property Name="EmployeeTypeKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_XREF">
+          <Key>
+            <PropertyRef Name="PRIMARY_EMP_RECORD_NUMBER" />
+            <PropertyRef Name="SECONDARY_EMP_RECORD_NUMBER" />
+          </Key>
+          <Property Name="PRIMARY_EMP_RECORD_NUMBER" Type="int" Nullable="false" />
+          <Property Name="SECONDARY_EMP_RECORD_NUMBER" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeCalendarYear">
+          <Key>
+            <PropertyRef Name="EmployeeCalendarYearKey" />
+          </Key>
+          <Property Name="EmployeeCalendarYearKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CalendarYearKey" Type="int" Nullable="false" />
+          <Property Name="Emp_Record_Number" Type="int" Nullable="false" />
+          <Property Name="StartOfYearPTOHours" Type="decimal" Scale="3" />
+        </EntityType>
+        <EntityType Name="EmployeePersonalContact">
+          <Key>
+            <PropertyRef Name="EmployeePersonalContactKey" />
+          </Key>
+          <Property Name="EmployeePersonalContactKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Record_Number" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="60" />
+          <Property Name="LastName" Type="varchar" MaxLength="60" />
+          <Property Name="EmailAddress" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="LocationSkey" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeePTOCoordinatorXref">
+          <Key>
+            <PropertyRef Name="Emp_Record_Number" />
+            <PropertyRef Name="Coordinator_Emp_Record_Number" />
+          </Key>
+          <Property Name="Emp_Record_Number" Type="int" Nullable="false" />
+          <Property Name="Coordinator_Emp_Record_Number" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeStatus">
+          <Key>
+            <PropertyRef Name="EmployeeStatusKey" />
+          </Key>
+          <Property Name="EmployeeStatusKey" Type="int" Nullable="false" />
+          <Property Name="EmployeeStatusName" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="EmployeeStatusDesc" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EmployeeStatusHistory">
+          <Key>
+            <PropertyRef Name="EmployeeStatusHistoryKey" />
+          </Key>
+          <Property Name="EmployeeStatusHistoryKey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeStatusKey" Type="int" Nullable="false" />
+          <Property Name="Emp_Record_Number" Type="int" Nullable="false" />
+          <Property Name="EffectiveDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeTimeCardApproverXRef">
+          <Key>
+            <PropertyRef Name="Emp_Record_Number" />
+            <PropertyRef Name="Approver_Emp_Record_Number" />
+          </Key>
+          <Property Name="Emp_Record_Number" Type="int" Nullable="false" />
+          <Property Name="Approver_Emp_Record_Number" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__EMPLOYEE___PRIMA__0AABB02F">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EMPLOYEE_XREF" Type="DEV3Model.Store.EMPLOYEE_XREF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EMPLOYEE_XREF">
+              <PropertyRef Name="PRIMARY_EMP_RECORD_NUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEE___SECON__09B78BF6">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EMPLOYEE_XREF" Type="DEV3Model.Store.EMPLOYEE_XREF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EMPLOYEE_XREF">
+              <PropertyRef Name="SECONDARY_EMP_RECORD_NUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__Emp_R__510DE289">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeCalendarYear" Type="DEV3Model.Store.EmployeeCalendarYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeCalendarYear">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeP__Coord__0DA3862B">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeePTOCoordinatorXref" Type="DEV3Model.Store.EmployeePTOCoordinatorXref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeePTOCoordinatorXref">
+              <PropertyRef Name="Coordinator_Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeP__Emp_R__0E97AA64">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeePTOCoordinatorXref" Type="DEV3Model.Store.EmployeePTOCoordinatorXref" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeePTOCoordinatorXref">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeS__Emp_R__69D99053">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeStatusHistory" Type="DEV3Model.Store.EmployeeStatusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeStatusHistory">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeS__Emplo__40392799">
+          <End Role="EmployeeStatus" Type="DEV3Model.Store.EmployeeStatus" Multiplicity="1" />
+          <End Role="EmployeeStatusHistory" Type="DEV3Model.Store.EmployeeStatusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeStatus">
+              <PropertyRef Name="EmployeeStatusKey" />
+            </Principal>
+            <Dependent Role="EmployeeStatusHistory">
+              <PropertyRef Name="EmployeeStatusKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeT__Appro__1174170F">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeTimeCardApproverXRef" Type="DEV3Model.Store.EmployeeTimeCardApproverXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeTimeCardApproverXRef">
+              <PropertyRef Name="Approver_Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeT__Emp_R__12683B48">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeTimeCardApproverXRef" Type="DEV3Model.Store.EmployeeTimeCardApproverXRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeTimeCardApproverXRef">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_Employee_OrgUnit_XRef">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="Employee_OrgUnit_XRef" Type="DEV3Model.Store.Employee_OrgUnit_XRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="Employee_OrgUnit_XRef">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalContact_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="DEV3Model.Store.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeePersonalContact" Type="DEV3Model.Store.EmployeePersonalContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeePersonalContact">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="EMPLOYEEs" EntityType="Model1.EMPLOYEE" />
+      <Schema Namespace="DEV3Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DEV3Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="BRANCHES" EntityType="DEV3Model.BRANCH" />
+          <EntitySet Name="DEPARTMENTS" EntityType="DEV3Model.DEPARTMENT" />
+          <EntitySet Name="EMPLOYEEs" EntityType="DEV3Model.EMPLOYEE" />
+          <EntitySet Name="Employee_OrgUnit_XRef" EntityType="DEV3Model.Employee_OrgUnit_XRef" />
+          <EntitySet Name="Employee_Type" EntityType="DEV3Model.Employee_Type" />
+          <EntitySet Name="EmployeeCalendarYears" EntityType="DEV3Model.EmployeeCalendarYear" />
+          <EntitySet Name="EmployeePersonalContacts" EntityType="DEV3Model.EmployeePersonalContact" />
+          <EntitySet Name="EmployeeStatus" EntityType="DEV3Model.EmployeeStatu" />
+          <EntitySet Name="EmployeeStatusHistories" EntityType="DEV3Model.EmployeeStatusHistory" />
+          <AssociationSet Name="FK__EmployeeC__Emp_R__510DE289" Association="DEV3Model.FK__EmployeeC__Emp_R__510DE289">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EmployeeCalendarYear" EntitySet="EmployeeCalendarYears" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeS__Emp_R__69D99053" Association="DEV3Model.FK__EmployeeS__Emp_R__69D99053">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EmployeeStatusHistory" EntitySet="EmployeeStatusHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_Employee_OrgUnit_XRef" Association="DEV3Model.FK_EMPLOYEE_Employee_OrgUnit_XRef">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="Employee_OrgUnit_XRef" EntitySet="Employee_OrgUnit_XRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalContact_EMPLOYEE" Association="DEV3Model.FK_EmployeePersonalContact_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EmployeePersonalContact" EntitySet="EmployeePersonalContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeS__Emplo__40392799" Association="DEV3Model.FK__EmployeeS__Emplo__40392799">
+            <End Role="EmployeeStatus" EntitySet="EmployeeStatus" />
+            <End Role="EmployeeStatusHistory" EntitySet="EmployeeStatusHistories" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLOYEE_XREF" Association="DEV3Model.EMPLOYEE_XREF">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EMPLOYEE1" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeePTOCoordinatorXref" Association="DEV3Model.EmployeePTOCoordinatorXref">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EMPLOYEE1" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeTimeCardApproverXRef" Association="DEV3Model.EmployeeTimeCardApproverXRef">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+            <End Role="EMPLOYEE1" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="BRANCH">
+          <Key>
+            <PropertyRef Name="BRANCH_NUMBER" />
+          </Key>
+          <Property Name="BRANCH_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="BRANCH_DESCRIPTION" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_NUMBER" />
+          </Key>
+          <Property Name="DEPARTMENT_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="DEPARTMENT_DESCRIPTION" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="UNDERWRITING_FLAG" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="CLAIMS_FLAG" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="PROGRAM_FLAG" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="DEDUCTIBLE_BILLING_FLAG" Type="Int32" />
+          <Property Name="PROFITCENTERKEY" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="AccountingGroupTypeKey" Type="Int32" />
+          <Property Name="CreateNewSubmissions" Type="Boolean" />
+        </EntityType>
         <EntityType Name="EMPLOYEE">
           <Key>
             <PropertyRef Name="EMP_RECORD_NUMBER" />
           </Key>
-          <Property Type="Int32" Name="EMP_RECORD_NUMBER" Nullable="false" />
-          <Property Type="String" Name="EMP_USER_PROFILE" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EMP_LAST_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EMP_ACTIVE_CODE" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Type="Int32" Name="EMP_EXTENSION" />
-          <Property Type="String" Name="EMP_FIRST_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EMP_MIDDLE_NAME" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EMP_PREFIX" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="EMP_BRANCH_NUMBER" />
-          <Property Type="Int32" Name="EMP_DEPARTMENT_NUMBER" />
-          <Property Type="String" Name="EMP_EMAIL_ADDRESS" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="EMP_FAXNUMBER" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="PaymentAuthority" Precision="19" Scale="4" />
-          <Property Type="Int32" Name="EmployeeTypeKey" />
-          <Property Type="Boolean" Name="IsExempt" Nullable="false" />
-          <Property Type="Boolean" Name="IsOnPayroll" Nullable="false" />
-          <Property Type="Int32" Name="DefaultUnderwriter" />
-          <Property Type="Boolean" Name="IsExecutive" Nullable="false" />
-          <Property Type="String" Name="Signature" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="AllowCompressed" />
-          <Property Type="DateTime" Name="CompressedStatusDate" Precision="3" />
-          <Property Type="Boolean" Name="WorkOtherDepartmentTasks" Nullable="false" />
-          <Property Type="Decimal" Name="IndemnityReserveAuthority" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="ExpenseReserveAuthority" Precision="18" Scale="2" />
-          <Property Type="String" Name="Initials" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address1" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address2" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="STATE_ABBREVIATION" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Type="String" Name="ZipCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_RECORD_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="EMP_USER_PROFILE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_LAST_NAME" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_ACTIVE_CODE" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="EMP_EXTENSION" Type="Int32" />
+          <Property Name="EMP_FIRST_NAME" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_MIDDLE_NAME" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_PREFIX" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_BRANCH_NUMBER" Type="Int32" />
+          <Property Name="EMP_DEPARTMENT_NUMBER" Type="Int32" />
+          <Property Name="EMP_EMAIL_ADDRESS" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="EMP_FAXNUMBER" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="PaymentAuthority" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="EmployeeTypeKey" Type="Int32" />
+          <Property Name="IsExempt" Type="Boolean" Nullable="false" />
+          <Property Name="IsOnPayroll" Type="Boolean" Nullable="false" />
+          <Property Name="DefaultUnderwriter" Type="Int32" />
+          <Property Name="IsExecutive" Type="Boolean" Nullable="false" />
+          <Property Name="Signature" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="AllowCompressed" Type="Boolean" />
+          <Property Name="CompressedStatusDate" Type="DateTime" Precision="3" />
+          <Property Name="WorkOtherDepartmentTasks" Type="Boolean" Nullable="false" />
+          <Property Name="IndemnityReserveAuthority" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ExpenseReserveAuthority" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Initials" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="Address1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Address2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="City" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="STATE_ABBREVIATION" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmployeeCalendarYears" Relationship="DEV3Model.FK__EmployeeC__Emp_R__510DE289" FromRole="EMPLOYEE" ToRole="EmployeeCalendarYear" />
+          <NavigationProperty Name="EmployeeStatusHistories" Relationship="DEV3Model.FK__EmployeeS__Emp_R__69D99053" FromRole="EMPLOYEE" ToRole="EmployeeStatusHistory" />
+          <NavigationProperty Name="Employee_OrgUnit_XRef" Relationship="DEV3Model.FK_EMPLOYEE_Employee_OrgUnit_XRef" FromRole="EMPLOYEE" ToRole="Employee_OrgUnit_XRef" />
+          <NavigationProperty Name="EmployeePersonalContacts" Relationship="DEV3Model.FK_EmployeePersonalContact_EMPLOYEE" FromRole="EMPLOYEE" ToRole="EmployeePersonalContact" />
+          <NavigationProperty Name="EMPLOYEE1" Relationship="DEV3Model.EMPLOYEE_XREF" FromRole="EMPLOYEE" ToRole="EMPLOYEE1" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="DEV3Model.EMPLOYEE_XREF" FromRole="EMPLOYEE1" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EMPLOYEE11" Relationship="DEV3Model.EmployeePTOCoordinatorXref" FromRole="EMPLOYEE" ToRole="EMPLOYEE1" />
+          <NavigationProperty Name="EMPLOYEEs1" Relationship="DEV3Model.EmployeePTOCoordinatorXref" FromRole="EMPLOYEE1" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EMPLOYEE12" Relationship="DEV3Model.EmployeeTimeCardApproverXRef" FromRole="EMPLOYEE" ToRole="EMPLOYEE1" />
+          <NavigationProperty Name="EMPLOYEEs2" Relationship="DEV3Model.EmployeeTimeCardApproverXRef" FromRole="EMPLOYEE1" ToRole="EMPLOYEE" />
         </EntityType>
+        <EntityType Name="Employee_OrgUnit_XRef">
+          <Key>
+            <PropertyRef Name="EmployeeOrgUnitXrefID" />
+          </Key>
+          <Property Name="EmployeeOrgUnitXrefID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EMP_RECORD_NUMBER" Type="Int32" Nullable="false" />
+          <Property Name="OrgUnitID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="DEV3Model.FK_EMPLOYEE_Employee_OrgUnit_XRef" FromRole="Employee_OrgUnit_XRef" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="Employee_Type">
+          <Key>
+            <PropertyRef Name="EmployeeTypeKey" />
+          </Key>
+          <Property Name="EmployeeTypeKey" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EmployeeCalendarYear">
+          <Key>
+            <PropertyRef Name="EmployeeCalendarYearKey" />
+          </Key>
+          <Property Name="EmployeeCalendarYearKey" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CalendarYearKey" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Record_Number" Type="Int32" Nullable="false" />
+          <Property Name="StartOfYearPTOHours" Type="Decimal" Precision="18" Scale="3" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="DEV3Model.FK__EmployeeC__Emp_R__510DE289" FromRole="EmployeeCalendarYear" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="EmployeePersonalContact">
+          <Key>
+            <PropertyRef Name="EmployeePersonalContactKey" />
+          </Key>
+          <Property Name="EmployeePersonalContactKey" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Record_Number" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="LocationSkey" Type="Int32" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="DEV3Model.FK_EmployeePersonalContact_EMPLOYEE" FromRole="EmployeePersonalContact" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="EmployeeStatu">
+          <Key>
+            <PropertyRef Name="EmployeeStatusKey" />
+          </Key>
+          <Property Name="EmployeeStatusKey" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeStatusName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="EmployeeStatusDesc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="EmployeeStatusHistories" Relationship="DEV3Model.FK__EmployeeS__Emplo__40392799" FromRole="EmployeeStatus" ToRole="EmployeeStatusHistory" />
+        </EntityType>
+        <EntityType Name="EmployeeStatusHistory">
+          <Key>
+            <PropertyRef Name="EmployeeStatusHistoryKey" />
+          </Key>
+          <Property Name="EmployeeStatusHistoryKey" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeStatusKey" Type="Int32" Nullable="false" />
+          <Property Name="Emp_Record_Number" Type="Int32" Nullable="false" />
+          <Property Name="EffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="DEV3Model.FK__EmployeeS__Emp_R__69D99053" FromRole="EmployeeStatusHistory" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EmployeeStatu" Relationship="DEV3Model.FK__EmployeeS__Emplo__40392799" FromRole="EmployeeStatusHistory" ToRole="EmployeeStatus" />
+        </EntityType>
+        <Association Name="FK__EmployeeC__Emp_R__510DE289">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeCalendarYear" Type="DEV3Model.EmployeeCalendarYear" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeCalendarYear">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeS__Emp_R__69D99053">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeeStatusHistory" Type="DEV3Model.EmployeeStatusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeeStatusHistory">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_Employee_OrgUnit_XRef">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="1" />
+          <End Role="Employee_OrgUnit_XRef" Type="DEV3Model.Employee_OrgUnit_XRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="Employee_OrgUnit_XRef">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalContact_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="1" />
+          <End Role="EmployeePersonalContact" Type="DEV3Model.EmployeePersonalContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_RECORD_NUMBER" />
+            </Principal>
+            <Dependent Role="EmployeePersonalContact">
+              <PropertyRef Name="Emp_Record_Number" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeS__Emplo__40392799">
+          <End Role="EmployeeStatus" Type="DEV3Model.EmployeeStatu" Multiplicity="1" />
+          <End Role="EmployeeStatusHistory" Type="DEV3Model.EmployeeStatusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeStatus">
+              <PropertyRef Name="EmployeeStatusKey" />
+            </Principal>
+            <Dependent Role="EmployeeStatusHistory">
+              <PropertyRef Name="EmployeeStatusKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLOYEE_XREF">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+          <End Role="EMPLOYEE1" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeePTOCoordinatorXref">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+          <End Role="EMPLOYEE1" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+        </Association>
+        <Association Name="EmployeeTimeCardApproverXRef">
+          <End Role="EMPLOYEE" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+          <End Role="EMPLOYEE1" Type="DEV3Model.EMPLOYEE" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Model1" />
-        <Alias Key="Target" Value="Model1.Store" />
-        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1StoreContainer">
-          <EntitySetMapping Name="EMPLOYEEs">
-            <EntityTypeMapping TypeName="Model1.EMPLOYEE">
-              <MappingFragment StoreEntitySet="EMPLOYEE">
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="STATE_ABBREVIATION" ColumnName="STATE_ABBREVIATION" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Address2" ColumnName="Address2" />
-                <ScalarProperty Name="Address1" ColumnName="Address1" />
-                <ScalarProperty Name="Initials" ColumnName="Initials" />
-                <ScalarProperty Name="ExpenseReserveAuthority" ColumnName="ExpenseReserveAuthority" />
-                <ScalarProperty Name="IndemnityReserveAuthority" ColumnName="IndemnityReserveAuthority" />
-                <ScalarProperty Name="WorkOtherDepartmentTasks" ColumnName="WorkOtherDepartmentTasks" />
-                <ScalarProperty Name="CompressedStatusDate" ColumnName="CompressedStatusDate" />
-                <ScalarProperty Name="AllowCompressed" ColumnName="AllowCompressed" />
-                <ScalarProperty Name="Signature" ColumnName="Signature" />
-                <ScalarProperty Name="IsExecutive" ColumnName="IsExecutive" />
-                <ScalarProperty Name="DefaultUnderwriter" ColumnName="DefaultUnderwriter" />
-                <ScalarProperty Name="IsOnPayroll" ColumnName="IsOnPayroll" />
-                <ScalarProperty Name="IsExempt" ColumnName="IsExempt" />
-                <ScalarProperty Name="EmployeeTypeKey" ColumnName="EmployeeTypeKey" />
-                <ScalarProperty Name="PaymentAuthority" ColumnName="PaymentAuthority" />
-                <ScalarProperty Name="EMP_FAXNUMBER" ColumnName="EMP_FAXNUMBER" />
-                <ScalarProperty Name="EMP_EMAIL_ADDRESS" ColumnName="EMP_EMAIL_ADDRESS" />
-                <ScalarProperty Name="EMP_DEPARTMENT_NUMBER" ColumnName="EMP_DEPARTMENT_NUMBER" />
-                <ScalarProperty Name="EMP_BRANCH_NUMBER" ColumnName="EMP_BRANCH_NUMBER" />
-                <ScalarProperty Name="EMP_PREFIX" ColumnName="EMP_PREFIX" />
-                <ScalarProperty Name="EMP_MIDDLE_NAME" ColumnName="EMP_MIDDLE_NAME" />
-                <ScalarProperty Name="EMP_FIRST_NAME" ColumnName="EMP_FIRST_NAME" />
-                <ScalarProperty Name="EMP_EXTENSION" ColumnName="EMP_EXTENSION" />
-                <ScalarProperty Name="EMP_ACTIVE_CODE" ColumnName="EMP_ACTIVE_CODE" />
-                <ScalarProperty Name="EMP_LAST_NAME" ColumnName="EMP_LAST_NAME" />
-                <ScalarProperty Name="EMP_USER_PROFILE" ColumnName="EMP_USER_PROFILE" />
-                <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="EMP_RECORD_NUMBER" />
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DEV3ModelStoreContainer" CdmEntityContainer="DEV3Entities">
+          <EntitySetMapping Name="BRANCHES">
+            <EntityTypeMapping TypeName="DEV3Model.BRANCH">
+              <MappingFragment StoreEntitySet="BRANCHES">
+                <ScalarProperty Name="BRANCH_NUMBER" ColumnName="BRANCH_NUMBER" />
+                <ScalarProperty Name="BRANCH_DESCRIPTION" ColumnName="BRANCH_DESCRIPTION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENTS">
+            <EntityTypeMapping TypeName="DEV3Model.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENTS">
+                <ScalarProperty Name="DEPARTMENT_NUMBER" ColumnName="DEPARTMENT_NUMBER" />
+                <ScalarProperty Name="DEPARTMENT_DESCRIPTION" ColumnName="DEPARTMENT_DESCRIPTION" />
+                <ScalarProperty Name="UNDERWRITING_FLAG" ColumnName="UNDERWRITING_FLAG" />
+                <ScalarProperty Name="CLAIMS_FLAG" ColumnName="CLAIMS_FLAG" />
+                <ScalarProperty Name="PROGRAM_FLAG" ColumnName="PROGRAM_FLAG" />
+                <ScalarProperty Name="DEDUCTIBLE_BILLING_FLAG" ColumnName="DEDUCTIBLE_BILLING_FLAG" />
+                <ScalarProperty Name="PROFITCENTERKEY" ColumnName="PROFITCENTERKEY" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AccountingGroupTypeKey" ColumnName="AccountingGroupTypeKey" />
+                <ScalarProperty Name="CreateNewSubmissions" ColumnName="CreateNewSubmissions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="DEV3Model.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="EMP_RECORD_NUMBER" />
+                <ScalarProperty Name="EMP_USER_PROFILE" ColumnName="EMP_USER_PROFILE" />
+                <ScalarProperty Name="EMP_LAST_NAME" ColumnName="EMP_LAST_NAME" />
+                <ScalarProperty Name="EMP_ACTIVE_CODE" ColumnName="EMP_ACTIVE_CODE" />
+                <ScalarProperty Name="EMP_EXTENSION" ColumnName="EMP_EXTENSION" />
+                <ScalarProperty Name="EMP_FIRST_NAME" ColumnName="EMP_FIRST_NAME" />
+                <ScalarProperty Name="EMP_MIDDLE_NAME" ColumnName="EMP_MIDDLE_NAME" />
+                <ScalarProperty Name="EMP_PREFIX" ColumnName="EMP_PREFIX" />
+                <ScalarProperty Name="EMP_BRANCH_NUMBER" ColumnName="EMP_BRANCH_NUMBER" />
+                <ScalarProperty Name="EMP_DEPARTMENT_NUMBER" ColumnName="EMP_DEPARTMENT_NUMBER" />
+                <ScalarProperty Name="EMP_EMAIL_ADDRESS" ColumnName="EMP_EMAIL_ADDRESS" />
+                <ScalarProperty Name="EMP_FAXNUMBER" ColumnName="EMP_FAXNUMBER" />
+                <ScalarProperty Name="PaymentAuthority" ColumnName="PaymentAuthority" />
+                <ScalarProperty Name="EmployeeTypeKey" ColumnName="EmployeeTypeKey" />
+                <ScalarProperty Name="IsExempt" ColumnName="IsExempt" />
+                <ScalarProperty Name="IsOnPayroll" ColumnName="IsOnPayroll" />
+                <ScalarProperty Name="DefaultUnderwriter" ColumnName="DefaultUnderwriter" />
+                <ScalarProperty Name="IsExecutive" ColumnName="IsExecutive" />
+                <ScalarProperty Name="Signature" ColumnName="Signature" />
+                <ScalarProperty Name="AllowCompressed" ColumnName="AllowCompressed" />
+                <ScalarProperty Name="CompressedStatusDate" ColumnName="CompressedStatusDate" />
+                <ScalarProperty Name="WorkOtherDepartmentTasks" ColumnName="WorkOtherDepartmentTasks" />
+                <ScalarProperty Name="IndemnityReserveAuthority" ColumnName="IndemnityReserveAuthority" />
+                <ScalarProperty Name="ExpenseReserveAuthority" ColumnName="ExpenseReserveAuthority" />
+                <ScalarProperty Name="Initials" ColumnName="Initials" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="STATE_ABBREVIATION" ColumnName="STATE_ABBREVIATION" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_OrgUnit_XRef">
+            <EntityTypeMapping TypeName="DEV3Model.Employee_OrgUnit_XRef">
+              <MappingFragment StoreEntitySet="Employee_OrgUnit_XRef">
+                <ScalarProperty Name="EmployeeOrgUnitXrefID" ColumnName="EmployeeOrgUnitXrefID" />
+                <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="EMP_RECORD_NUMBER" />
+                <ScalarProperty Name="OrgUnitID" ColumnName="OrgUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Type">
+            <EntityTypeMapping TypeName="DEV3Model.Employee_Type">
+              <MappingFragment StoreEntitySet="Employee_Type">
+                <ScalarProperty Name="EmployeeTypeKey" ColumnName="EmployeeTypeKey" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeCalendarYears">
+            <EntityTypeMapping TypeName="DEV3Model.EmployeeCalendarYear">
+              <MappingFragment StoreEntitySet="EmployeeCalendarYear">
+                <ScalarProperty Name="EmployeeCalendarYearKey" ColumnName="EmployeeCalendarYearKey" />
+                <ScalarProperty Name="CalendarYearKey" ColumnName="CalendarYearKey" />
+                <ScalarProperty Name="Emp_Record_Number" ColumnName="Emp_Record_Number" />
+                <ScalarProperty Name="StartOfYearPTOHours" ColumnName="StartOfYearPTOHours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeePersonalContacts">
+            <EntityTypeMapping TypeName="DEV3Model.EmployeePersonalContact">
+              <MappingFragment StoreEntitySet="EmployeePersonalContact">
+                <ScalarProperty Name="EmployeePersonalContactKey" ColumnName="EmployeePersonalContactKey" />
+                <ScalarProperty Name="Emp_Record_Number" ColumnName="Emp_Record_Number" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="LocationSkey" ColumnName="LocationSkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeStatus">
+            <EntityTypeMapping TypeName="DEV3Model.EmployeeStatu">
+              <MappingFragment StoreEntitySet="EmployeeStatus">
+                <ScalarProperty Name="EmployeeStatusKey" ColumnName="EmployeeStatusKey" />
+                <ScalarProperty Name="EmployeeStatusName" ColumnName="EmployeeStatusName" />
+                <ScalarProperty Name="EmployeeStatusDesc" ColumnName="EmployeeStatusDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeStatusHistories">
+            <EntityTypeMapping TypeName="DEV3Model.EmployeeStatusHistory">
+              <MappingFragment StoreEntitySet="EmployeeStatusHistory">
+                <ScalarProperty Name="EmployeeStatusHistoryKey" ColumnName="EmployeeStatusHistoryKey" />
+                <ScalarProperty Name="EmployeeStatusKey" ColumnName="EmployeeStatusKey" />
+                <ScalarProperty Name="Emp_Record_Number" ColumnName="Emp_Record_Number" />
+                <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EMPLOYEE_XREF" TypeName="DEV3Model.EMPLOYEE_XREF" StoreEntitySet="EMPLOYEE_XREF">
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="PRIMARY_EMP_RECORD_NUMBER" />
+            </EndProperty>
+            <EndProperty Name="EMPLOYEE1">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="SECONDARY_EMP_RECORD_NUMBER" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmployeePTOCoordinatorXref" TypeName="DEV3Model.EmployeePTOCoordinatorXref" StoreEntitySet="EmployeePTOCoordinatorXref">
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="Coordinator_Emp_Record_Number" />
+            </EndProperty>
+            <EndProperty Name="EMPLOYEE1">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="Emp_Record_Number" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmployeeTimeCardApproverXRef" TypeName="DEV3Model.EmployeeTimeCardApproverXRef" StoreEntitySet="EmployeeTimeCardApproverXRef">
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="Approver_Emp_Record_Number" />
+            </EndProperty>
+            <EndProperty Name="EMPLOYEE1">
+              <ScalarProperty Name="EMP_RECORD_NUMBER" ColumnName="Emp_Record_Number" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    <Diagrams></Diagrams>
+  </Designer>
 </edmx:Edmx>

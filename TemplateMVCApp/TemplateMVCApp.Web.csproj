@@ -148,8 +148,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiControllers\ApiBaseController.cs" />
+    <Compile Include="ApiControllers\LookupsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="App_Start\NinjectControllerFactory.cs" />
+    <Compile Include="App_Start\NinjectDependencyResolver.cs" />
+    <Compile Include="App_Start\NinjectDependencyScope.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
@@ -166,9 +172,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DBExampleController.cs" />
     <Compile Include="Controllers\PluginSamplesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="ApiControllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +209,9 @@
     <Content Include="config\Web.config.template" />
     <Content Include="config\dev\Web.config.token" />
     <Content Include="Web.config" />
+    <None Include="packages.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\lib\jquery-1.9.1.intellisense.js" />
     <None Include="Scripts\lib\amplify-vsdoc.js" />
     <Content Include="Scripts\lib\amplify.js" />
@@ -250,6 +260,7 @@
     <Content Include="Views\PluginSamples\Typeahead.cshtml" />
     <Content Include="Views\View1.cshtml" />
     <Content Include="Views\Home\View1.cshtml" />
+    <Content Include="Views\DBExample\EFExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -265,8 +276,12 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TemplateMVCApp.Data.Contracts\TemplateMVCApp.Data.Contracts.csproj">
+      <Project>{47b11003-0f58-4a69-8dc3-ecf33cacdd44}</Project>
+      <Name>TemplateMVCApp.Data.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TemplateMVCApp.Data\TemplateMVCApp.Data.csproj">
-      <Project>{D7E3C50F-2C02-4134-BDEA-F060FB97555E}</Project>
+      <Project>{d7e3c50f-2c02-4134-bdea-f060fb97555e}</Project>
       <Name>TemplateMVCApp.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\TemplateMVCApp.Model\TemplateMVCApp.Model.csproj">

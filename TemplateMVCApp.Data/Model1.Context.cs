@@ -13,10 +13,10 @@ namespace TemplateMVCApp.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class DEV3Entities : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public DEV3Entities()
+            : base("name=DEV3Entities")
         {
         }
     
@@ -25,6 +25,14 @@ namespace TemplateMVCApp.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        
+        public DbSet<BRANCH> BRANCHES { get; set; }
+        public DbSet<DEPARTMENT> DEPARTMENTS { get; set; }
+        public DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
+        public DbSet<Employee_OrgUnit_XRef> Employee_OrgUnit_XRef { get; set; }
+        public DbSet<Employee_Type> Employee_Type { get; set; }
+        public DbSet<EmployeeCalendarYear> EmployeeCalendarYears { get; set; }
+        public DbSet<EmployeePersonalContact> EmployeePersonalContacts { get; set; }
+        public DbSet<EmployeeStatu> EmployeeStatus { get; set; }
+        public DbSet<EmployeeStatusHistory> EmployeeStatusHistories { get; set; }
     }
 }
